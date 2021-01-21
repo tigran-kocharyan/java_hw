@@ -13,7 +13,7 @@ public class JsonParser {
      */
     public String getShortLocation(String json) {
         if(json == null) {
-            return "Location: Null";
+            throw new IllegalArgumentException("JSON shouldn't be null.");
         }
         JSONObject obj = new JSONObject(json);
         return obj.getString("country_name") + "\n" +
@@ -28,7 +28,7 @@ public class JsonParser {
      */
     public String getLongLocation(String json) {
         if(json == null) {
-            return "Location: Null";
+            throw new IllegalArgumentException("JSON shouldn't be null.");
         }
         JSONObject obj = new JSONObject(json);
         return obj.getString("country_name") + "\n" +

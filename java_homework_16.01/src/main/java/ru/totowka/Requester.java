@@ -11,6 +11,15 @@ import java.util.Objects;
  * Класс для отправки запроса к freegeoip.app
  */
 public class Requester {
+    private OkHttpClient client;
+
+    /**
+     * Public-конструктор класса.
+     */
+    public Requester() {
+        client = new OkHttpClient();
+    }
+
     /**
      * Метод отравки запроса и получения строки JSON.
      * @param url ссылка для обращения.
@@ -18,8 +27,6 @@ public class Requester {
      * @throws IOException
      */
     public String getByRequest(String url) throws IOException {
-        OkHttpClient client = new OkHttpClient();
-
         // Построение ответа от API.
         Request request = new Request.Builder()
                 .url(url)
